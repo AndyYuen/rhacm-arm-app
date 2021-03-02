@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: busybox
+  name: http
   labels:
-    app: busybox
+    app: http
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: busybox
+      app: http
   template:
     metadata:
       labels:
-        app: busybox
+        app: http
     spec:
       nodeSelector:
         kubernetes.io/arch: arm64
       containers:
-      - image: mrdreambot/arm64-busybox-httpd:latest
-        name: busybox
+      - image: mrdreambot/arm64-http-httpd:latest
+        name: http
         resources:
             requests:
               memory: "32Mi"
