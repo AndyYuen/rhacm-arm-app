@@ -17,7 +17,7 @@ spec:
       nodeSelector:
         kubernetes.io/arch: arm64
       containers:
-      - image: mrdreambot/arm64-http-httpd:latest
+      - image: mrdreambot/arm64-busybox-httpd:latest
         name: http
         resources:
             requests:
