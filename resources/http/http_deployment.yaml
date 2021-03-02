@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox
+  labels:
+    app: busybox
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: arm64
+      containers:
+      - image: mrdreambot/arm64-busybox-httpd:latest
+        name: busybox
+        resources:
+            requests:
+              memory: "32Mi"
+              cpu: "100m"
+            limits:
+              memory: "32Mi"
+              cpu: "100m"
+        ports:
+        - containerPort: 80
