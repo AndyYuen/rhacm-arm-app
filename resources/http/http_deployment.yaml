@@ -16,6 +16,11 @@ spec:
     spec:
       nodeSelector:
         kubernetes.io/arch: arm64
+      tolerations:
+      - key: "kubernetes.io/arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
       containers:
       - image: mrdreambot/arm64-busybox-httpd:latest
         name: http
