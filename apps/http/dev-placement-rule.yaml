@@ -10,3 +10,5 @@ spec:
   clusterSelector:
     matchLabels:
       environment: dev
+      cluster: hybrid
+      ingress: traefik
